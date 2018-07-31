@@ -44,7 +44,12 @@ class ReceiptTable extends HTMLElement {
 
     shadow.appendChild(tbl);
 
-    console.log(getTax());
+    cell.appendChild(cellText);
+    row.appendChild(cell);
+
+    addFinalRows('Sub Total: ', getSubTotal());
+    addFinalRows('Tax: ', getTax());
+    addFinalRows('Total: ', getTotal());
 
     function getColSum() {
       for (let col = 0; col < x['0'].rows['0'].cells.length; col++) {
@@ -66,6 +71,19 @@ class ReceiptTable extends HTMLElement {
     }
     function getTotal() {
       return getTax() + getSubTotal();
+    }
+    // Adds subtotal, tax and total rows
+    function addFinalRows(string, value) {
+      var row = document.createElement('tr');
+      row.appendChild(helper(string));
+      row.appendChild(helper(value));
+      tblBody.appendChild(row);
+    }
+    function helper(value) {
+      var cell = document.createElement('td');
+      var cellText = document.createTextNode(value);
+      cell.appendChild(cellText);
+      return cell;
     }
   }
 }
