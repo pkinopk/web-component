@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>WebComponent</title>
+  <!-- Need to defer scripts for some reason otherwise querying the DOM will return null !-->
+  <script src="webcomponent.js" defer></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <receipt-table tax="0.05" col="cost">
+    <table>
+      <tr>
+        <th>Quantity</th>
+        <th>Description</th>
+        <th>Unit Price</th>
+        <th>cost</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Norwegian aligator clips</td>
+        <td>2.00</td>
+        <td>2.00</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Dragon</td>
+        <td>7.00</td>
+        <td>35.00</td>
+      </tr>
+    </table>
+  </receipt-table>
+
+</body>
+
+</html>
