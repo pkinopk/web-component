@@ -15,6 +15,7 @@ class ReceiptTable extends HTMLElement {
     var tbl = document.createElement('table');
     var tblBody = document.createElement('tbody');
 
+    // Declaring some variables
     var cell;
     var cellText;
     var i = 0;
@@ -33,7 +34,7 @@ class ReceiptTable extends HTMLElement {
         cell.appendChild(cellText);
         row.appendChild(cell);
       }
-      // add the row to the end of the table body
+      // adds the row to the end of the table body
       tblBody.appendChild(row);
     }
 
@@ -75,6 +76,10 @@ class ReceiptTable extends HTMLElement {
     // Adds subtotal, tax and total rows
     function addFinalRows(string, value) {
       var row = document.createElement('tr');
+      for (let i = 0; i <= getColSum() - 2; i++) {
+        var cell = document.createElement('td');
+        row.appendChild(cell);
+      }
       row.appendChild(helper(string));
       row.appendChild(helper(value));
       tblBody.appendChild(row);
@@ -89,28 +94,3 @@ class ReceiptTable extends HTMLElement {
 }
 
 customElements.define('receipt-table', ReceiptTable);
-
-{
-  /* <table>
-
-<tr>
-    <th>Quantity</th>
-    <th>Description</th>
-    <th>Unit Price</th>
-    <th>cost</th>
-</tr>
-<tr>
-    <td>1</td>
-    <td>Norwegian aligator clips</td>
-    <td>2.00</td>
-    <td>2.00</td>
-</tr>
-<tr>
-    <td>5</td>
-    <td>Dragon</td>
-    <td>7.00</td>
-    <td>35.00</td>
-</tr>
-
-</table> */
-}
